@@ -9,6 +9,7 @@ RSpec.describe 'User food index' do
 
     expect(current_path).to eq('/foods')
     
+    expect(page).to have_css('foods', count: 10)
   end
 end
 
