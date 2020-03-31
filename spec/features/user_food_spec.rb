@@ -8,9 +8,8 @@ RSpec.describe 'User food index' do
     fill_in 'q', with: 'sweet potatoes'
     click_button 'Search'
 
-    expect(current_path).to eq('/foods')
-
-    expect(page).to have_css('foods', count: 10)
+    expect(current_path).to eq(foods_path)
+    expect(page).to have_css(".food", count: 10)
   end
 end
 

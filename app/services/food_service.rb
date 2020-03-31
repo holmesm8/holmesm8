@@ -1,18 +1,17 @@
 class FoodService
 
-  def food_search(food)
-    get_json("/search?api_key=kLnWVadwR9NYdjg8cyAIfEV1coAIZIv5seS7CAUh&generalSearchInput=Sweet+Potatoes/")
+  def foods(food)
+    get_json("/fdc/v1/search?api_key=#{ENV['USDA_API_KEY']}&generalSearchInput=#{food}")
   end
 
 
 private
   def get_json(url)
     response = conn.get(url)
-    json_response = JSON.parse(response.body)
-    require 'pry'; binding.pry
+    json_response = JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn
-    Faraday.new(url: 'https://api.nal.usda.gov/fdc/v1') 
+    Faraday.new(url: 'https://api.nal.usda.gov/') 
   end
 end

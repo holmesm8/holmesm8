@@ -1,11 +1,5 @@
 class FoodsController < ApplicationController
   def index
-    test = FoodService.new
-    test.food_search(params["q"])
+    @data = FoodService.new.foods(params["q"])[:foods][0..9]
   end
-
-
-  # def search_params
-  #   params.permit(:food)
-  # end
 end

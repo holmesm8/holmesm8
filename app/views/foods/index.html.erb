@@ -1,0 +1,11 @@
+<h1>Foods</h1>
+<section class = "foods">
+  <% @data.each do |food| %>
+    <ul class="food">
+      <li><%= food[:description] %></li>
+      <li><%= food[:gtinUpc] %></li>
+      <li><%= food[:brandOwner] %></li>
+      <li><%= food[:ingredients] %></li>
+    </ul>
+  <% end %>
+</section>
